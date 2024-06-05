@@ -1,0 +1,93 @@
+.navMobile {
+    display: flex;
+    overflow: hidden;
+    opacity: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+
+    // top: var(--height-header);
+    top: 0;
+    background-color: var(--cl-third);
+
+    // z-index: 50;
+    transition: background-color 0.3s;
+
+    .thumb {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 100vh;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    ul {
+        @include mid(true);
+
+        align-items: center;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 40px;
+
+        li {
+            @include transition(0.3s);
+
+            a {
+                position: relative;
+                display: flex;
+                letter-spacing: var(--ls-textmenu-new);
+
+                @include text(dm, var(--fs-textmenu-new), var(--lh-textmenu-new), white, uppercase);
+
+                // &::after {
+                //     content: "";
+                //     width: 0;
+                //     height: 1px;
+                //     bottom: 6px;
+                //     position: absolute;
+                //     background-color: white;
+                //     transition: 0.3s;
+                // }
+
+                &.liActive {
+                    font-family: db;
+
+                    &::after {
+                        display: none;
+                    }
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+
+                &.btnmain {
+                    // @include text(db, 1.6rem, 1.6rem, white, uppercase);
+                    font-size: 1.6rem;
+                    padding: 0 77px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1010px) {
+        .thumb {
+            display: flex;
+        }
+
+        &.--show {
+            @include mid(true);
+
+            z-index: 100;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}

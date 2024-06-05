@@ -1,0 +1,131 @@
+.body404 {
+    .page404 {
+        width: 100%;
+        height: 100vh;
+        min-height: 616px;
+        position: relative;
+
+        .container {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+
+            @include mid(true);
+
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .thumbblur {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            display: flex;
+            width: 100%;
+            opacity: 0.5;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .textbox {
+            .--h1 {
+                @include text(db, 18rem, 16rem, var(--cl-first), initial);
+            }
+
+            .--h2 {
+                margin-top: 15px;
+                margin-bottom: 16px;
+            }
+
+            .desc {
+                @include text(dr, 1.8rem, 3.2rem, white, initial);
+
+                max-width: 557px;
+            }
+        }
+
+        .groupbtn {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+
+            .btnmain {
+                &:first-child {
+                    &:hover {
+                        background-color: white;
+                        color: var(--cl-first);
+                    }
+                }
+
+                &:last-child {
+                    background-color: #1A245D;
+
+                    &:hover {
+                        background-color: var(--cl-first);
+                    }
+                }
+            }
+        }
+
+        @include xs {
+            .container {
+                gap: 35px;
+            }
+
+            .textbox {
+                .--h1 {
+                    font-size: 15rem;
+                    line-height: 14rem;
+                }
+
+                .--h2 {
+                    margin-top: 32px;
+                }
+
+                .desc {
+                    padding-right: 15px;
+                    padding-left: 15px;
+                    max-width: 490px;
+                }
+            }
+        }
+
+
+        @include xxs {
+            .container {
+                gap: 32px;
+            }
+
+            .textbox {
+                .--h1 {
+                    font-size: 12rem;
+                    line-height: 12rem;
+                }
+
+                .desc {
+                    font-size: 1.6rem;
+                    line-height: 2.6rem;
+                    max-width: 360px;
+                }
+            }
+
+            .groupbtn {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 16px;
+                width: 100%;
+
+                .btnmain {
+                    width: 100%;
+                    grid-column: 1/2;
+                }
+            }
+        }
+    }
+}

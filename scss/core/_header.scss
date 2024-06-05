@@ -1,0 +1,193 @@
+.header {
+    height: var(--height-header);
+    position: fixed;
+    z-index: 200;
+    width: 100%;
+    top: 0;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    -webkit-transition: background-color 0.3s;
+
+    &.--addbg {
+        transition: background-color 0.3s;
+        -webkit-transition: background-color 0.3s;
+
+        // background-color: var(--cl-third);
+        background-color: var(--cl-second);
+        box-shadow: 0 3px 8px 0px rgba(0, 0, 0, 0.86);
+        -webkit-box-shadow: 0 3px 8px 0px rgba(0, 0, 0, 0.86);
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        height: 100%;
+
+        @include mid(true);
+    }
+
+    .wrap {
+        @include mid(true);
+        @include transition(0.3s);
+    }
+
+    &__menu {
+        display: flex;
+        margin-left: 65px;
+        gap: 27px;
+        position: relative;
+
+        @include transition(0.3s);
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 56px;
+            top: 50%;
+            left: -32px;
+            transform: translateY(-50%);
+            background-color: var(--cl-second);
+        }
+
+        li {
+            @include transition(0.3s);
+
+            a {
+                position: relative;
+                display: flex;
+                padding: 7px 1px;
+
+                @include text(dm, var(--fs-textmenu), var(--lh-textmenu), white, uppercase);
+
+                letter-spacing: 0.14rem;
+
+                &::after {
+                    content: "";
+                    width: 0;
+                    height: 1px;
+                    bottom: 6px;
+                    position: absolute;
+                    background-color: white;
+                    transition: 0.3s;
+                }
+
+                &.liActive {
+                    // font-family: db;
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__btn {
+        padding: 0 32px;
+        height: 56px;
+        width: max-content;
+
+        @include mid(true);
+
+        &:hover {
+            background-color: white;
+            color: var(--cl-first);
+        }
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    @media screen and (max-width: 1010px) {
+        .wrap {
+            gap: 30px;
+        }
+
+        &__menu {
+            display: none;
+            gap: 18px;
+        }
+
+        &__btn {
+            display: none;
+        }
+
+        .hamburger {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--cl-first);
+            position: relative;
+
+            @include mid(true);
+            @include transition(0.3s);
+
+            span {
+                width: 25px;
+                height: 2px;
+                background-color: white;
+
+                @include transition(0.3s);
+            }
+
+            &::before {
+                content: "";
+                width: 25px;
+                height: 2px;
+                background-color: white;
+                position: absolute;
+                top: 12px;
+
+                @include transition(0.3s);
+            }
+
+            &::after {
+                content: "";
+                width: 25px;
+                height: 2px;
+                background-color: white;
+                position: absolute;
+                bottom: 12px;
+
+                @include transition(0.3s);
+            }
+
+            &.--close {
+                span {
+                    display: none;
+                }
+
+                &::before {
+                    content: "";
+                    width: 25px;
+                    height: 2px;
+                    background-color: white;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%) rotate(45deg);
+                }
+
+                &::after {
+                    content: "";
+                    width: 25px;
+                    height: 2px;
+                    background-color: white;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%) rotate(-45deg);
+                }
+            }
+        }
+    }
+}

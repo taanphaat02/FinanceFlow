@@ -1,0 +1,171 @@
+.pricing {
+    .hero {
+        padding-top: calc(var(--height-header) + 55px);
+        padding-bottom: 225px;
+
+        .textbox {
+            text-align: center;
+
+            .heading {
+                letter-spacing: -1px;
+                margin-bottom: 16px;
+            }
+
+            .desc {
+                margin: 0 auto;
+                max-width: 568px;
+            }
+        }
+
+        &__img {
+            display: flex;
+            margin-top: 40px;
+            margin-bottom: 56px;
+            justify-content: space-between;
+
+            &-thumb {
+                @include mid(true);
+
+                gap: 24px;
+            }
+        }
+
+        &__list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--gap);
+
+            &-item {
+                padding: 48px 30px 42px 30px;
+                border-radius: 40px;
+                background-color: var(--cl-fourth);
+
+                .intro {
+                    margin-bottom: 40px;
+
+                    .heading {
+                        margin-bottom: 16px;
+                        margin-top: 16px;
+                    }
+
+                    .desc {
+                        font-size: 1.8rem;
+                        line-height: 3.2rem;
+                        letter-spacing: 0;
+                    }
+
+                    .tag {
+                        width: fit-content;
+                    }
+                }
+
+                .content {
+                    .heading {
+                        @include text(db, 1.8rem, 2.6rem, white, uppercase);
+
+                        letter-spacing: 0.09rem;
+                    }
+
+                    ul {
+                        gap: 16px;
+                        padding-left: 16px;
+
+                        li {
+                            position: relative;
+                            margin-top: 16px;
+                            letter-spacing: 0;
+                            line-height: 2rem;
+
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                background-color: var(--cl-first);
+                                width: 6px;
+                                height: 6px;
+                                border-radius: 50%;
+                                top: 50%;
+                                left: -16px;
+                                transform: translateY(-50%);
+                            }
+                        }
+                    }
+
+                    .btnmain {
+                        width: 100%;
+                        margin-top: 54px;
+
+                        &:hover {
+                            background-color: white;
+                            color: var(--cl-first);
+                        }
+                    }
+                }
+            }
+        }
+
+        @include sm {
+            &__img {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 38px;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 568px;
+
+                &-thumb {
+                    justify-content: initial;
+
+                    &:nth-child(even) {
+                        flex-direction: row-reverse;
+                    }
+                }
+            }
+
+            &__list {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+
+        @include xs {
+            &__list {
+                .intro {
+                    .heading {
+                        font-size: 4.2rem;
+                        line-height: 5.5rem;
+                        letter-spacing: 0rem;
+                    }
+                }
+            }
+        }
+
+
+        @include xxs {
+            padding-top: calc(var(--height-header) + 43px);
+            padding-bottom: 80px;
+
+            .textbox {
+                text-align: left;
+
+                .desc {
+                    max-width: 100%;
+                }
+            }
+
+            &__img {
+                grid-template-columns: 1fr;
+                margin-bottom: 48px;
+
+                &-thumb {
+                    flex-direction: initial;
+                    gap: 18px;
+
+                    &:nth-child(even) {
+                        flex-direction: initial;
+                    }
+                }
+            }
+        }
+    }
+}

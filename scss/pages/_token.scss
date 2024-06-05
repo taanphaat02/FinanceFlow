@@ -1,0 +1,158 @@
+.tokenpage {
+    .tokens {
+        padding-top: calc(var(--height-header) + 80px);
+        padding-bottom: 120px;
+
+        .textbox {
+            margin: 0 auto;
+            max-width: 568px;
+            text-align: center;
+            margin-bottom: 100px;
+
+            .heading {
+                margin-bottom: 16px;
+            }
+        }
+
+        &__list {
+            &-row {
+                display: flex;
+                font-size: 16px;
+                padding: 43px 0 44px 10px;
+                border-bottom: 1px solid #1A203B;
+
+                .column {
+                    display: flex;
+                    align-self: center;
+
+                    &.heading {
+                        @include text(db, 1.6rem, 1.8rem, white, uppercase);
+                    }
+
+                    &.content {
+                        @include text(dr, 1.6rem, 2.6rem, white, initial);
+                    }
+
+                    .wrap {
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+
+                        .text {
+                            font-size: 1.8rem;
+                            line-height: 2rem;
+                            font-family: db;
+                        }
+
+                        .tag {
+                            background-color: var(--cl-fourth);
+                            font-family: dm;
+                            font-size: 1.2rem;
+                            line-height: 1.2rem;
+                            letter-spacing: 0.06rem;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        width: 25%;
+                    }
+
+                    &:nth-child(2) {
+                        width: 25%;
+                    }
+
+                    &:nth-child(3) {
+                        width: 20%;
+                        font-family: db;
+                    }
+
+                    &:nth-child(4) {
+                        width: 20%;
+                        font-family: db;
+                    }
+
+                    &:last-child {
+                        width: 10%;
+
+                        a {
+                            text-decoration: underline;
+                            color: white;
+
+                            @include transition(0.3s);
+
+                            &:hover {
+                                color: var(--cl-first);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include sm {
+            padding-top: calc(var(--height-header) + 38px);
+            padding-bottom: 80px;
+
+            .textbox {
+                text-align: left;
+                margin: initial;
+                margin-bottom: 48px;
+                max-width: 100%;
+            }
+
+            &__list {
+                &-row {
+                    display: flex;
+                    flex-direction: column;
+                    border-bottom: none;
+                    padding: initial;
+
+                    &:first-child {
+                        padding: 0;
+                    }
+
+                    &:nth-child(3), &:nth-child(4),
+                    &:nth-child(5) {
+                        display: none;
+                    }
+
+                    .column {
+                        display: flex;
+                        align-self: center;
+
+                        &:nth-child(2) {
+                            padding-right: 20%;
+                        }
+
+                        &.heading {
+                            @include text(db, 1.6rem, 1.8rem, white, uppercase);
+
+                            display: none;
+                        }
+
+                        &.content {
+                            @include text(dr, 1.6rem, 2.6rem, white, initial);
+
+                            border-bottom: 1px solid #1A203B;
+
+                            // margin-top: 32px;
+                            padding-bottom: 32px;
+                            padding-top: 65px;
+                            width: 100%;
+                            position: relative;
+
+                            &::before {
+                                display: block;
+                                content: attr(dataTitle);
+                                position: absolute;
+                                color: white;
+                                top: 30px;
+                                font-family: db;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

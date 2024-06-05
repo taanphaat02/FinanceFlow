@@ -1,0 +1,324 @@
+.contact {
+  .main {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .blur {
+    position: absolute;
+    top: 0;
+    right: -50%;
+    transform: translateY(-50%);
+
+    @media screen and (max-width: 850px) {
+      display: none;
+    }
+  }
+
+  .getintouch {
+    padding-top: calc(var(--height-header) + 80px);
+    padding-bottom: 120px;
+
+    .wrap {
+      margin-top: 52px;
+      display: grid;
+      grid-gap: var(--gap);
+      grid-template-columns: repeat(12, 1fr);
+
+      .getintouch__form {
+        grid-column: 1/9;
+        margin-top: 11px;
+
+        .gridgroup {
+          display: grid;
+          grid-gap: 32px;
+          grid-template-columns: 1fr 1fr;
+          padding-right: 35px;
+          margin-bottom: 32px;
+
+          .form__group {
+            position: relative;
+
+            &:last-child {
+              grid-column: 1/3;
+            }
+
+            p {
+              @include text(db, 1.8rem, 2.6rem, white, uppercase);
+
+              margin-bottom: 12px;
+              letter-spacing: 0.09rem;
+            }
+
+            .error {
+              @include text(dr, 1.8rem, 0, red, initial);
+
+              text-align: start;
+              position: absolute;
+              bottom: -30px;
+              left: 0;
+            }
+
+            &-input {
+              background-color: var(--cl-fourth);
+              border-radius: 100px;
+              height: 68px;
+              width: 100%;
+              padding: 0 25px;
+              outline: none;
+              border: none;
+              border: 1px solid var(--cl-third);
+
+              @include text(dr, 1.8rem, 2.7rem, white, initial);
+
+              &::placeholder {
+                @include text(dr, 1.8rem, 2.7rem, white, initial);
+              }
+
+              &.textarea {
+                padding: 20px 25px;
+                resize: none;
+                border-radius: 14px;
+                height: 162px;
+              }
+
+              &:focus {
+                border: 1px solid white;
+              }
+
+              &.--formError {
+                border: 1px solid red;
+              }
+            }
+          }
+        }
+
+        .btnmain {
+          cursor: pointer;
+
+          &:hover {
+            background-color: white;
+            color: var(--cl-first);
+          }
+        }
+      }
+
+      .textbox {
+        grid-column: 9/13;
+
+        .desc {
+          margin-top: 15px;
+          margin-bottom: 32px;
+        }
+
+        .listicon {
+          .item {
+            gap: 15px;
+
+            @include text(dm, 1.8rem, 2.9rem, white, initial);
+            @include transition(0.3s);
+
+            letter-spacing: 0;
+
+            &:hover {
+              color: var(--cl-first);
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 850px) {
+      padding-top: calc(var(--height-header) + 50px);
+      padding-bottom: 100px;
+
+      .wrap {
+        margin-top: 40px;
+        grid-gap: 48px;
+        grid-template-columns: 1fr;
+
+        .getintouch__form {
+          grid-column: 1/2;
+          margin-top: initial;
+
+          .gridgroup {
+            padding-right: initial;
+          }
+
+          .btnmain {
+            width: 100%;
+          }
+        }
+
+        .textbox {
+          grid-column: 1/2;
+
+          .desc {
+            margin-top: 19px;
+            margin-bottom: 24px;
+          }
+        }
+      }
+    }
+
+    @include xxs {
+      padding-top: calc(var(--height-header) + 48px);
+      padding-bottom: 80px;
+
+      .wrap {
+        .getintouch__form {
+          .gridgroup {
+            grid-gap: 24px;
+            grid-template-columns: 1fr;
+
+            .form__group {
+              grid-column: 1/2;
+              position: relative;
+
+              &:last-child {
+                grid-column: initial;
+              }
+            }
+          }
+        }
+
+        .textbox {
+          grid-column: 1/2;
+        }
+      }
+    }
+  }
+
+  .accordion {
+    padding-bottom: 120px;
+
+    .wrap {
+      max-width: 790px;
+      margin: 0 auto;
+    }
+
+    .--h1 {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    &__content {
+      cursor: pointer;
+      position: relative;
+      padding: 32px 3px 32px 8px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      &-title {
+        position: relative;
+
+        .--h4 {
+          @include text(db, 2.8rem, 3rem, white, initial);
+
+          padding-right: 27px;
+          letter-spacing: 0.028rem;
+        }
+
+        span {
+          position: absolute;
+          width: 27px;
+          height: 2px;
+          background-color: white;
+          content: "";
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+
+          @include transition(0.3s);
+
+          &::before {
+            position: absolute;
+            width: 27px;
+            height: 2px;
+            background-color: white;
+            content: "";
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%) rotate(90deg);
+
+            @include transition(0.3s);
+          }
+
+          &.--removeicon {
+            &::before {
+              position: relative;
+            }
+          }
+        }
+      }
+
+      &-text {
+        margin-top: 16px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        padding-right: 27px;
+
+        @include text(dr, 1.8rem, 3.2rem, white, initial);
+      }
+    }
+
+    @media screen and (max-width: 850px) {
+      padding-bottom: 100px;
+
+      .--h1 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      &__content {
+        padding: 24px 0px 24px 0px;
+
+        &-text {
+          padding-right: initial;
+        }
+      }
+    }
+
+    @include xs {
+      padding-bottom: 80px;
+
+      .wrap {
+        max-width: 600px;
+      }
+
+      .--h1 {
+        margin-bottom: 32px;
+      }
+
+      &__content {
+        grid-column: 1/2;
+
+        &-title {
+          .--h4 {
+            font-size: 1.8rem;
+            line-height: 2.6rem;
+          }
+        }
+
+        &-text {
+          font-size: 1.6rem;
+          line-height: 2.6rem;
+        }
+      }
+    }
+
+    @include xxs {
+      .wrap {
+        max-width: 100%;
+      }
+    }
+  }
+}

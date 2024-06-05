@@ -1,0 +1,136 @@
+:root {
+    /* MaxWidth Of Page, Container-Fluid, Container, Gutter*/
+
+    --max-width-page: 2560px;
+
+    // --max-width-container: 1198px;
+    --max-width-container: calc(1198px + calc(var(--gap) * 2));
+    --padding: 28px;
+    --gap: 26px;
+    --card-carousel: calc(var(--max-width-container)/2 - var(--gap)/2 - var(--padding));
+
+    // calc((100vw - var(--max-width-container))/2);
+    --padding-sectionOur: calc((100vw - var(--max-width-container) ) / 2);
+    --card-carousel-s: calc(100vw - 52px - var(--gap)/2);
+
+    /* Colors Variable Demo*/
+    --cl-first: #0328EE;
+    --cl-second: #00116A;
+    --cl-third: #010725;
+    --cl-white: #ffffff;
+    --cl-fourth: #010D50;
+
+    // Fontsize - Lineheight Variable Demo
+    --fs-h1: 6.6rem;
+    --lh-h1: 7.9992rem;
+    --ls-h1: -0.1rem;
+    --fs-h2:4.2rem;
+    --lh-h2: 5.5rem;
+    --ls-h2: 0rem;
+    --fs-h3: 2.2rem;
+    --lh-h3: 3.1rem;
+
+    //
+    --fs-label: 1.8rem;
+    --lh-label: 2.6rem;
+    --ls-label: 0.09rem;
+
+    //
+    --fs-textbtn: 1.6rem;
+    --lh-textbtn: 1.6rem;
+    --ls-textbtn: 0.16rem;
+
+    //
+    --fs-body1: 1.8rem;
+    --lh-body1: 3.2rem;
+    --ls-body1: 0rem;
+    --fs-body2: 1.6rem;
+    --lh-body2: 2.6rem;
+    --ls-body2: 0rem;
+
+    //
+    --fs-textmenu: 1.4rem;
+    --lh-textmenu: 1.6rem;
+    --ls-textmenu: 0.14rem;
+    --fs-textmenu-new: 2.6rem;
+    --lh-textmenu-new: 100%;
+    --ls-textmenu-new: 0.14rem;
+
+    //
+    --fs-texttag:1.4rem;
+    --lh-texttag:1.8rem;
+    --ls-texttag: 0.07rem;
+
+    // Height
+    --height-header: 100px;
+    --height-button: 70px;
+    --duration: 0.3s;
+    --cubic: cubic-bezier(0.59, 0.29, 0.15, 0.93);
+
+    // Responsive
+    @include md {
+        --container-max-width: 1140px;
+    }
+
+
+    @include sm {
+        --container-max-width: 960px;
+    }
+
+
+    @include xs {
+        --container-max-width: 100%;
+        --fs-h1: 3.8rem;
+        --lh-h1: 4.6rem;
+        --ls-h1: 0.-1rem;
+        --fs-h2: 2.8rem;
+        --lh-h2: 3.6rem;
+        --ls-h2: 0rem;
+
+        //
+        --fs-label: 1.4rem;
+        --lh-label: 1.8rem;
+        --ls-label: 0.07rem;
+
+        //
+        --fs-textbtn: 1.6rem;
+        --lh-textbtn:1.6rem;
+        --ls-textbtn:0.16rem;
+
+        //
+        --fs-body1: 1.6rem;
+        --lh-body1: 2.6rem;
+        --ls-body1: 0rem;
+        --fs-body2: 1.6rem;
+        --lh-body2: 2.6rem;
+        --ls-body2: 0rem;
+
+        //
+        --fs-textmenu: 3.2rem;
+        --lh-textmenu: 100%;
+        --ls-textmenu: 0.14rem;
+
+        //
+        --fs-texttag: 1.4rem;
+        --lh-texttag: 1.8rem;
+        --ls-texttag: 0.07rem;
+
+        // General Variable Demo
+        --height-header: 73px;
+        --height-button: 70px;
+        --padding: 15px;
+    }
+
+
+    @include xxs {
+        --height-header: 64px;
+        --container-max-width: 100%;
+    }
+
+
+    @media screen and (max-width: 391px) {
+        --fs-textmenu-new: 1.6rem;
+        --lh-textmenu-new: 2.6rem;
+        --ls-textmenu-new: 0rem;
+    }
+}

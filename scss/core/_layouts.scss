@@ -1,0 +1,45 @@
+html {
+    font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+    background-color: var(--cl-third);
+    width: 100%;
+    max-width: var(--max-width-page);
+    margin: auto;
+    scroll-behavior: smooth;
+    font-family: dr;
+    font-size: var(--fs-body1);
+    line-height: var(--lh-body1);
+    color: white;
+    transition: 0.3s;
+
+    &.--disable-scroll {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    // .container-fluid {
+    //     width: 100%;
+    //     max-width: var(--max-width-container-fluid);
+    //     padding-right: var(--gap);
+    //     padding-left: var(--gap);
+    //     margin-right: auto;
+    //     margin-left: auto;
+    //     position: relative;
+    // }
+
+    .container {
+        width: 100%;
+        max-width: var(--max-width-container);
+        padding-right: var(--padding);
+        padding-left: var(--padding);
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+    }
+
+    .main {
+        position: relative;
+    }
+}
